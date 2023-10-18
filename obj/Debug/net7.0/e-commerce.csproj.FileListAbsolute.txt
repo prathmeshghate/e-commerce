@@ -31,3 +31,6 @@ F:\e-commerce\obj\Debug\net7.0\refint\e-commerce.dll
 F:\e-commerce\obj\Debug\net7.0\e-commerce.pdb
 F:\e-commerce\obj\Debug\net7.0\e-commerce.genruntimeconfig.cache
 F:\e-commerce\obj\Debug\net7.0\ref\e-commerce.dll
+F:\e-commerce\bin\Debug\net7.0\ecommerce-ui\package-lock.json
+F:\e-commerce\bin\Debug\net7.0\ecommerce-ui\package.json
+F:\e-commerce\bin\Debug\net7.0\ecommerce-ui\public\manifest.json
