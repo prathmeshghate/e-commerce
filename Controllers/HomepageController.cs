@@ -3,11 +3,17 @@ using DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Controller;
-
+[Route("api/[HomepageController]")]
+[ApiController]
 public class HomepageController : ControllerBase
 {
-    [Route("api/homepage")]
-    public async Task<string> HomepageAsync()
+    private readonly IServiceCollection _container;
+
+    public HomepageController(IServiceCollection container){
+        _container=container;
+    }
+
+    public IActionResult HomepageAsync()
     {
         //make a dto which will contain 
         //productName
@@ -16,11 +22,10 @@ public class HomepageController : ControllerBase
         //discountedPrice
         //image
         //rating
-        ProductLogic productLogic=new();
-        List<ProductInfo> products = await productLogic.GetDataAsync();
+        
 
 
-        return "GotThe HitBitch";
+        return  Ok("GotThe HitBitch");
     }
 
 
