@@ -1,20 +1,21 @@
 using DTO;
 using Interface.homepage;
 
-namespace DAL.homepage;
-
-public class HomepageProductRepositary : IHomepageProductRepositary
+namespace DAL.homepage
 {
-
-    private readonly IServiceCollection _container;
-
-    public HomepageProductRepositary(IServiceCollection container)
+    public class HomepageProductRepositary : IHomepageProductRepositary
     {
-        _container = container;
-    }
 
-    public ProductInfoDto GetAllHomepageProduct()
-    {
-        return new ProductInfoDto();
+        private readonly IServiceProvider _container;
+
+        public HomepageProductRepositary(IServiceProvider container)
+        {
+            _container = container;
+        }
+
+        public ProductInfoDTO GetAllHomepageProduct()
+        {
+            return new ProductInfoDTO();
+        }
     }
 }

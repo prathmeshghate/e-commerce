@@ -1,15 +1,28 @@
 using Interface.homepage;
 using DTO;
-namespace BAL.homepage;
+using Entity.Homepage;
 
-public class ProductLogic : IProductLogic
+namespace BAL.homepage
 {
-
-    public List<ProductInfoDto> GetDataAsync()
+    public class ProductLogic : IProductLogic
     {
+        private readonly IServiceProvider _container;
+        private readonly IHomepageProductRepositary _homepagerepo;
 
-        return new List<ProductInfoDto>();
+        public ProductLogic(IServiceProvider container)
+        {
+            _container = container;
+            _homepagerepo=_container.GetRequiredService<IHomepageProductRepositary>();
+            
+        }
+        public List<ProductSummary> GetDataAsync()
+        {
+            ProductInfoDTO x=_homepagerepo.GetAllHomepageProduct();
 
+            return new List<ProductSummary>();
+
+        }
     }
-}
 
+
+}

@@ -1,19 +1,20 @@
 using System.Text.Json.Serialization;
 
-namespace DTO;
-
-public class ProductInfoDto
+namespace DTO
 {
-    [JsonPropertyName("ProductName")]
-    string ProductName;
-    [JsonPropertyName("MakeName")]
-    string MakeName;
-    [JsonPropertyName("Price")]
-    uint Price;
-    [JsonPropertyName("DiscountedPrice")]
-    uint DiscountedPrice;
-    [JsonPropertyName("ImagePath")]
-    string ImagePath;
-    [JsonPropertyName("Rating")]
-    float Rating;
+    public class ProductInfoDTO
+    {
+        [JsonPropertyName("productName")]
+        string ProductName;
+        [JsonPropertyName("makeName")]
+        string MakeName;
+        [JsonPropertyName("price")]
+        uint Price;
+        [JsonPropertyName("discountedPrice")]
+        uint DiscountedPrice;
+        [JsonPropertyName("imagePath")]
+        string ImagePath;
+        [JsonPropertyName("rating")]
+        float Rating;
+    }
 }

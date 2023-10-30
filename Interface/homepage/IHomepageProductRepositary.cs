@@ -1,8 +1,9 @@
 using DTO;
 
-namespace Interface.homepage;
-
-public interface IHomepageProductRepositary
+namespace Interface.homepage
 {
-    ProductInfoDto GetAllHomepageProduct();
+    public interface IHomepageProductRepositary
+    {
+        ProductInfoDTO GetAllHomepageProduct();
+    }
 }

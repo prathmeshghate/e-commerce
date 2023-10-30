@@ -2,31 +2,33 @@ using BAL.homepage;
 using DTO;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Controller;
-[Route("api/[HomepageController]")]
-[ApiController]
-public class HomepageController : ControllerBase
+namespace Controller.homepage
 {
-    private readonly IServiceCollection _container;
-
-    public HomepageController(IServiceCollection container){
-        _container=container;
-    }
-
-    public IActionResult HomepageAsync()
+    public class HomepageController : ControllerBase
     {
-        //make a dto which will contain 
-        //productName
-        //makeName
-        //price
-        //discountedPrice
-        //image
-        //rating
-        
+        private readonly IServiceCollection _container;
+
+        public HomepageController(IServiceCollection container)
+        {
+            _container = container;
+        }
+
+        [Route("api/HomepageController")]
+        public IActionResult HomepageAsync()
+        {
+            //make a dto which will contain 
+            //productName
+            //makeName
+            //price
+            //discountedPrice
+            //image
+            //rating
 
 
-        return  Ok("GotThe HitBitch");
+
+            return Ok("GotThe HitBitch");
+        }
+
+
     }
-
-
 }

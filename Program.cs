@@ -4,7 +4,6 @@ using BAL.homepage;
 using DAL.homepage;
 // using Google.Protobuf.WellKnownTypes;
 using Interface.homepage;
-// using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Platform.DbConnection;
 
@@ -15,6 +14,7 @@ internal class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
+        IServiceCollection _services = new ServiceCollection();
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -32,14 +32,13 @@ internal class Program
         //DependencyInjection
         #region DependencyInjection
 
-        builder.Services.AddScoped<IHomepageProductRepositary, HomepageProductRepositary>();
-        builder.Services.AddScoped<IProductLogic, ProductLogic>();
+        _services.AddTransient<IHomepageProductRepositary, HomepageProductRepositary>();
+        _services.AddTransient<IProductLogic, ProductLogic>();
 
         #endregion
 
 
         var app = builder.Build();
-
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {

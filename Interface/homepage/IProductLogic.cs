@@ -1,8 +1,9 @@
-using DTO;
+using Entity.Homepage;
 
-namespace Interface.homepage;
-
-public interface IProductLogic
+namespace Interface.homepage
 {
-    List<ProductInfoDto> GetDataAsync();
+    public interface IProductLogic
+    {
+        List<ProductSummary> GetDataAsync();
+    }
 }
