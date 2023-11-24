@@ -1,0 +1,17 @@
+* {
+  /* margin-top: 110px; */
+  padding: 0px;
+  /* background-color: blanchedalmond; */
+  z-index: 0;
+  /* width: 100vw; */
+}
+
+.header-container{
+    position: sticky;
+    top:0;
+}
+
+.body-container {
+    /* min-height: calc(100vh-110px); */
+  /* margin-top: 110px; */
+}

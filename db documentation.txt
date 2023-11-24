@@ -1,0 +1,50 @@
+db documentation                               * = compulsary                      
+* user data schema                             & = optional 
+ -UserId *int
+ -Full Name *string
+ -E-mail &string
+ -UserName *string
+ -Password *string - encrypted
+
+#start region
+Note- this are kept optional they will not be asked while registering & would be compulsary
+when user tries to order
+
+*Address Db
+ -UserId *int
+ -Adrress 1(Home) *string
+ -AddrressType &optional
+ -City *string
+ -Postal Code *int
+ -State &string
+ -Country &string
+ 
+* Fav Product Db
+ -UserId *int
+ -ProductId *int
+
+#endRegion
+
+* Product Db
+ -ProductId *int
+ -ProductName *string
+
+ -Category- Clothing,Electronic - From frontend it will come as *string from a drop down box and will get stored as enum
+    - Notes : thinking to keep them as enum to ensure smooth coding and errors
+
+ -Category - shirt,tshirt,Jeans,jacket,sweater - From frontend it will come as *string from a drop down box and will get stored as enum
+    - Notes : thinking to keep them as enum to ensure smooth coding and errors
+
+ -Style- Baggy,fit,Oversized,Narrow &string 
+ -BrandName- h&m, zara, adidas &string
+ -
+
+*Ordered Product Db
+ -UserId *int
+ -ProductId *int
+ -OrderedOn *int
+	
+	
+	
+	
+
