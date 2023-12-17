@@ -1,11 +1,14 @@
-// using application.DbContext;
 using System.Security.Cryptography.X509Certificates;
 using BAL.homepage;
 using DAL.homepage;
-// using Google.Protobuf.WellKnownTypes;
 using Interface.homepage;
 using Microsoft.EntityFrameworkCore;
 using Platform.DbConnection;
+using AutoMapper;
+using System.Globalization;
+using mapper;
+using Interface.CreateUpdate;
+using BAL.CreateUpdate;
 
 internal class Program
 {
@@ -24,6 +27,7 @@ internal class Program
         builder.Services.AddControllersWithViews();
 
         builder.Services.AddScoped<ApplicationDbContext>();
+        builder.Services.AddAutoMapper(typeof(Program));
         //MySql Connection 
         string connString = builder.Configuration.GetConnectionString("DefaultConnectionMySQL");
         builder.Services.AddDbContext<ApplicationDbContext>(Option => Option.UseMySql(connString, ServerVersion.AutoDetect(connString)));
@@ -32,9 +36,9 @@ internal class Program
         //DependencyInjection
         #region DependencyInjection
 
-        _services.AddTransient<IHomepageProductRepositary, HomepageProductRepositary>();
-        _services.AddTransient<IProductLogic, ProductLogic>();
-
+        builder.Services.AddTransient<IHomepageProductRepositary, HomepageProductRepositary>();
+        builder.Services.AddTransient<IProductLogic, ProductLogic>();
+        builder.Services.AddTransient<ICreateUpdateDbLogic, CreateUpdateDbLogic>();
         #endregion
 
 

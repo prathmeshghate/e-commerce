@@ -1,4 +1,5 @@
-using Entity.Homepage;
+
+using Entity.productSummary;
 using Microsoft.EntityFrameworkCore;
 
 namespace Platform.DbConnection

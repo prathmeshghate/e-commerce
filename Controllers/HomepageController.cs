@@ -2,7 +2,7 @@ using BAL.homepage;
 using DTO;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Controller.homepage
+namespace controller.homepage
 {
     public class HomepageController : ControllerBase
     {

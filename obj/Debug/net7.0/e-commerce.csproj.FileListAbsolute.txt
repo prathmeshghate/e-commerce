@@ -8,6 +8,8 @@ F:\e-commerce\bin\Debug\net7.0\e-commerce.deps.json
 F:\e-commerce\bin\Debug\net7.0\e-commerce.runtimeconfig.json
 F:\e-commerce\bin\Debug\net7.0\e-commerce.dll
 F:\e-commerce\bin\Debug\net7.0\e-commerce.pdb
+F:\e-commerce\bin\Debug\net7.0\AutoMapper.dll
+F:\e-commerce\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 F:\e-commerce\bin\Debug\net7.0\Humanizer.dll
 F:\e-commerce\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 F:\e-commerce\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll

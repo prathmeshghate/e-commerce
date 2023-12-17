@@ -1,4 +1,5 @@
 using DTO;
+using DTO.product;
 using Interface.homepage;
 
 namespace DAL.homepage
@@ -13,9 +14,9 @@ namespace DAL.homepage
             _container = container;
         }
 
-        public ProductInfoDTO GetAllHomepageProduct()
+        public ProductDTO GetAllHomepageProduct()
         {
-            return new ProductInfoDTO();
+            return new ProductDTO();
         }
     }
 }

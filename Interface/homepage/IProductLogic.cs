@@ -1,4 +1,5 @@
-using Entity.Homepage;
+
+using Entity.productSummary;
 
 namespace Interface.homepage
 {
