@@ -33,18 +33,12 @@ namespace BAL.CreateUpdate
             Product Product = new();
             List<string> Colours = new List<string>(productSummary.Colours.Split(","));
 
-            List<Product> products = IntoSingleEntity(productSummary);
+            List<Product> products = IntoIndividualProduct(productSummary);
             int productsLength = products.Count;
             for (int i = 0; i < productsLength; i++)
             {
-
                 response = _createUpdateDbRepositary.InsertProductAsync(products[i]);
-
             }
-
-
-
-
 
             // write the logic of creating new productId and productDescriptionId here
 
@@ -84,7 +78,7 @@ namespace BAL.CreateUpdate
             return true;
         }
 
-        private List<Product> IntoSingleEntity(ProductSummary productSummary)
+        private List<Product> IntoIndividualProduct(ProductSummary productSummary)
         {
             //I get following this into a mulitple format
             //sku
@@ -101,7 +95,7 @@ namespace BAL.CreateUpdate
             ProductDescription productDescription = new();
             Product product = new();
 
-            List<Product> individualProduct= new List<Product>();
+            List<Product> products= new List<Product>();
             productPrimaryDetails = _mapper.Map<ProductPrimaryDetails>(productSummary);
             productDescription = _mapper.Map<ProductDescription>(productSummary);
 
@@ -111,6 +105,10 @@ namespace BAL.CreateUpdate
                 productDescription.Colour=Colours[i];
                 productDescription.ImagePath=ImagePaths[i];
                 productDescription.Sku=sku[i];
+
+                product.ProductPrimaryDetails=productPrimaryDetails;
+                product.ProductDescription=productDescription;
+                products.Add(product);
             }
 
             return product;
