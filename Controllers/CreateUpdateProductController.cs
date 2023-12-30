@@ -35,19 +35,23 @@ namespace controller.createProduct
         [Route("api/create-product")]
         public IActionResult InsertProduct([FromBody] ProductSummaryDto productRequest)
         {
-            ValidationDetails request = Validation.ValidateProductInfoDto(productRequest);
-
-            if (!request.IsValidRequest)
+            try
             {
-                RequestDetails errorDetails = new RequestDetails("BadRequest, The mentioned property is null: ", request.PropertyName);
-                return BadRequest(errorDetails);
+                ValidationDetails request = Validation.ValidateProductInfoDto(productRequest);
+                if (!request.IsValidRequest)
+                {
+                    RequestDetails errorDetails = new RequestDetails("BadRequest, The mentioned property is null: ", request.PropertyName);
+                    return BadRequest(errorDetails);
+                }
+                ProductSummary productSummary = _mapper.Map<ProductSummary>(productRequest);
+                ResponseDetails result = _createUpdateDbLogic.InsertProductAsync(productSummary);
+
+                return Ok(result);
             }
-            //Mapper
-            ProductSummary productSummary = _mapper.Map<ProductSummary>(productRequest);
-
-            ResponseDetails result = _createUpdateDbLogic.InsertProductAsync(productSummary);
-
-            return Ok(result);
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = (ex.Message, nameof(InsertProduct)).ToString() });
+            }
 
         }
     }

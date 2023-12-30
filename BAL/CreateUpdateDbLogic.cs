@@ -6,6 +6,7 @@ using Entity.productSummary;
 using Interface.CreateUpdate;
 using Interface.CreateUpdateRepo;
 using utility.response;
+using utility.Validation;
 
 namespace BAL.CreateUpdate
 {
@@ -24,17 +25,17 @@ namespace BAL.CreateUpdate
 
         public ResponseDetails InsertProductAsync(ProductSummary productSummary)
         {
-            ResponseDetails response = new();
-            if (!ColorsAndImageInputForamatChecker(productSummary, response))
+            ResponseDetails response = Validation.ValidateProudctSummary(productSummary);
+            if (!response.IsValid)
             {
                 return response;
             }
 
             Product Product = new();
             List<string> Colours = new List<string>(productSummary.Colours.Split(","));
-
             List<Product> products = IntoIndividualProduct(productSummary);
             int productsLength = products.Count;
+            
             for (int i = 0; i < productsLength; i++)
             {
                 response = _createUpdateDbRepositary.InsertProductAsync(products[i]);
@@ -44,38 +45,6 @@ namespace BAL.CreateUpdate
 
             return response;
 
-        }
-
-        private bool ColorsAndImageInputForamatChecker(ProductSummary productSummary, ResponseDetails response)
-        {
-            //I get following this into a mulitple format
-            //colours
-            //imagePaths
-            //sku
-            List<string> Colours = new List<string>(productSummary.Colours.Split(","));
-            List<string> ImagePaths = new List<string>(productSummary.ImagePaths.Split(","));
-            List<string> sku = new List<string>(productSummary.Sku.Split(","));
-
-            //allowed cases colours.Count==imagePath.Count && imagepath.Count ==1
-            //imagePaths and Colours
-            if (ImagePaths.Count != Colours.Count)
-            {
-                response.Message = "Colours and Imagepath are not correct format";
-                return false;
-            }
-            //imagePaths and sku
-            if (sku.Count != ImagePaths.Count)
-            {
-                response.Message = "sku and Imagepath are not correct format";
-                return false;
-            }
-            //sku and Colours
-            if (sku.Count != Colours.Count)
-            {
-                response.Message = "Colours and sku are not correct format";
-                return false;
-            }
-            return true;
         }
 
         private List<Product> IntoIndividualProduct(ProductSummary productSummary)
@@ -95,23 +64,23 @@ namespace BAL.CreateUpdate
             ProductDescription productDescription = new();
             Product product = new();
 
-            List<Product> products= new List<Product>();
+            List<Product> products = new List<Product>();
             productPrimaryDetails = _mapper.Map<ProductPrimaryDetails>(productSummary);
             productDescription = _mapper.Map<ProductDescription>(productSummary);
 
 
             for (int i = 0; i < ColoursLength; i++)
             {
-                productDescription.Colour=Colours[i];
-                productDescription.ImagePath=ImagePaths[i];
-                productDescription.Sku=sku[i];
+                productDescription.Colour = Colours[i];
+                productDescription.ImagePath = ImagePaths[i];
+                productDescription.Sku = sku[i];
 
-                product.ProductPrimaryDetails=productPrimaryDetails;
-                product.ProductDescription=productDescription;
+                product.ProductPrimaryDetails = productPrimaryDetails;
+                product.ProductDescription = productDescription;
                 products.Add(product);
             }
 
-            return product;
+            return products;
 
 
         }

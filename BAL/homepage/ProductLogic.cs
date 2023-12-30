@@ -2,6 +2,7 @@ using Interface.homepage;
 using DTO;
 using Entity.productSummary;
 using DTO.product;
+using Entity.product;
 
 namespace BAL.homepage
 {
@@ -18,7 +19,7 @@ namespace BAL.homepage
         }
         public List<ProductSummary> GetDataAsync()
         {
-            ProductDTO x=_homepagerepo.GetAllHomepageProduct();
+            Product x=_homepagerepo.GetAllHomepageProduct();
 
             return new List<ProductSummary>();
 

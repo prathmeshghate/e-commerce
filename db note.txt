@@ -1,0 +1,10 @@
+db note
+
+
+changes I need to make in db 
+
+in product description add colours and imagespath as string nonemtpy
+
+sku to int to string
+productprice float
+productdiscount float

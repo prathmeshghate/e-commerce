@@ -39,9 +39,9 @@ namespace DTO.productSummary
         [JsonPropertyName("productDescription")]
         public string ProductDescription { get; set; }
         [JsonPropertyName("productPrice")]
-        public int ProductPrice { get; set; }
+        public float ProductPrice { get; set; }
         [JsonPropertyName("productDiscount")]
-        public int ProductDiscount { get; set; }
+        public float ProductDiscount { get; set; }
         [JsonPropertyName("sku")]
         public string Sku { get; set; }
         [JsonPropertyName("rating")]
