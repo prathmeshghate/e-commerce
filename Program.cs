@@ -1,4 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
 using BAL.homepage;
 using DAL.homepage;
 using Interface.homepage;
@@ -9,6 +8,8 @@ using System.Globalization;
 using mapper;
 using Interface.CreateUpdate;
 using BAL.CreateUpdate;
+using Interface.CreateUpdateRepo;
+using DAL.CreateUpdate;
 
 internal class Program
 {
@@ -39,6 +40,7 @@ internal class Program
         builder.Services.AddTransient<IHomepageProductRepositary, HomepageProductRepositary>();
         builder.Services.AddTransient<IProductLogic, ProductLogic>();
         builder.Services.AddTransient<ICreateUpdateDbLogic, CreateUpdateDbLogic>();
+        builder.Services.AddTransient<ICreateUpdateDbRepositary, CreateUpdateDbRepositary>();
         #endregion
 
 

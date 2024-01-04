@@ -46,3 +46,10 @@ F:\e-commerce\obj\Debug\net7.0\refint\e-commerce.dll
 F:\e-commerce\obj\Debug\net7.0\e-commerce.pdb
 F:\e-commerce\obj\Debug\net7.0\e-commerce.genruntimeconfig.cache
 F:\e-commerce\obj\Debug\net7.0\ref\e-commerce.dll
+F:\e-commerce\bin\Debug\net7.0\Newtonsoft.Json.dll
+F:\e-commerce\bin\Debug\net7.0\System.Data.SqlClient.dll
+F:\e-commerce\bin\Debug\net7.0\runtimes\win-arm64\native\sni.dll
+F:\e-commerce\bin\Debug\net7.0\runtimes\win-x64\native\sni.dll
+F:\e-commerce\bin\Debug\net7.0\runtimes\win-x86\native\sni.dll
+F:\e-commerce\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+F:\e-commerce\bin\Debug\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

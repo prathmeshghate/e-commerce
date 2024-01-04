@@ -5,6 +5,7 @@ using Entity.productPrimary;
 using Entity.productSummary;
 using Interface.CreateUpdate;
 using Interface.CreateUpdateRepo;
+using utility.DbResponse;
 using utility.response;
 using utility.Validation;
 
@@ -17,33 +18,44 @@ namespace BAL.CreateUpdate
         private readonly IMapper _mapper;
         private readonly ICreateUpdateDbRepositary _createUpdateDbRepositary;
 
-        public CreateUpdateDbLogic(IServiceProvider container, IMapper mapper)
+        public CreateUpdateDbLogic(IServiceProvider container, IMapper mapper, ICreateUpdateDbRepositary createUpdateDbRepositary)
         {
             _container = container;
             _mapper = mapper;
+            _createUpdateDbRepositary = createUpdateDbRepositary;
         }
 
-        public ResponseDetails InsertProductAsync(ProductSummary productSummary)
+        public async Task<ResponseDetails> InsertProductAsync(ProductSummary productSummary)
         {
-            ResponseDetails response = Validation.ValidateProudctSummary(productSummary);
-            if (!response.IsValid)
+            try
             {
+
+                ResponseDetails response = Validation.ValidateProudctSummary(productSummary);
+                if (!response.IsValid)
+                {
+                    return response;
+                }
+
+                Product Product = new();
+                List<string> Colours = new List<string>(productSummary.Colours.Split(","));
+                List<Product> products = IntoIndividualProduct(productSummary);
+                int productsLength = products.Count;
+
+                DbResponseDetails primaryDataResponse = await _createUpdateDbRepositary.InsertPrimaryDetailsAsync(products[0].ProductPrimaryDetails);
+
+                for (int i = 0; i < productsLength; i++)
+                {
+                    response = await _createUpdateDbRepositary.InsertDescriptionAsync(products[i].ProductDescription,primaryDataResponse.IncrementedId);
+                }
+
+                // write the logic of creating new productId and productDescriptionId here
+
                 return response;
             }
-
-            Product Product = new();
-            List<string> Colours = new List<string>(productSummary.Colours.Split(","));
-            List<Product> products = IntoIndividualProduct(productSummary);
-            int productsLength = products.Count;
-            
-            for (int i = 0; i < productsLength; i++)
+            catch (Exception ex)
             {
-                response = _createUpdateDbRepositary.InsertProductAsync(products[i]);
+                return new ResponseDetails { Message = ex.Message };
             }
-
-            // write the logic of creating new productId and productDescriptionId here
-
-            return response;
 
         }
 

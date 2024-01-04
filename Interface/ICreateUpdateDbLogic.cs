@@ -5,6 +5,6 @@ namespace Interface.CreateUpdate
 {
     public interface ICreateUpdateDbLogic
     {
-        ResponseDetails InsertProductAsync(ProductSummary productSummary);
+        Task<ResponseDetails> InsertProductAsync(ProductSummary productSummary);
     }
 }

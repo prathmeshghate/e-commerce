@@ -3,6 +3,7 @@ namespace Entity.productDesc
 
     public class ProductDescription
     {
+        public int ProductId {get; set;}
         public int ProductDescriptionId { get; set; } //empty , will be created in logic file
         public string Colour { get; set; } // L
         public string ImagePath { get; set; } // ecommerce/ui/abc.jpg

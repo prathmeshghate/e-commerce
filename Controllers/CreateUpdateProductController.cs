@@ -33,7 +33,7 @@ namespace controller.createProduct
         }
         [HttpPost]
         [Route("api/create-product")]
-        public IActionResult InsertProduct([FromBody] ProductSummaryDto productRequest)
+        public async Task<IActionResult> InsertProduct([FromBody] ProductSummaryDto productRequest)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace controller.createProduct
                     return BadRequest(errorDetails);
                 }
                 ProductSummary productSummary = _mapper.Map<ProductSummary>(productRequest);
-                ResponseDetails result = _createUpdateDbLogic.InsertProductAsync(productSummary);
+                ResponseDetails result = await _createUpdateDbLogic.InsertProductAsync(productSummary);
 
                 return Ok(result);
             }
