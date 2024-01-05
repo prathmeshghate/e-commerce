@@ -2,11 +2,12 @@ using Entity.product;
 using Interface.CreateUpdate;
 using Interface.CreateUpdateRepo;
 using utility.response;
-using System.Data.SqlClient;
+// using System.Data.SqlClient;
 using Newtonsoft.Json.Linq;
 using Entity.productPrimary;
 using Entity.productDesc;
 using utility.DbResponse;
+using MySql.Data.MySqlClient;
 
 
 namespace DAL.CreateUpdate
@@ -16,7 +17,7 @@ namespace DAL.CreateUpdate
         public async Task<DbResponseDetails> InsertPrimaryDetailsAsync(ProductPrimaryDetails product)
         {
             DbResponseDetails response = new();
-            string incrementedId;
+            long incrementedId;
             string connectionString = "server=localhost; port=3306; database=ecommerce; user=root; password=9284@Mysim;";
 
             // data for insertion
@@ -26,7 +27,7 @@ namespace DAL.CreateUpdate
             string productBrand = product.ProductBrand;
             int shopKartAssured = product.ShopKartAssured;
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 await connection.OpenAsync();
 
@@ -34,16 +35,22 @@ namespace DAL.CreateUpdate
                 {
                     // Step 1: Insert into the first table
                     string sqlInsertQuery1 = "INSERT INTO ecommerce.products (productName, productCategory,productSubCategory,productBrand,shopKartAssured) VALUES (@ProductName, @ProductCategory,@ProductSubCategory,@ProductBrand,@ShopKartAssured)";
-                    using (SqlCommand command1 = new SqlCommand(sqlInsertQuery1, connection))
+                    using (MySqlCommand command1 = new MySqlCommand(sqlInsertQuery1, connection))
                     {
                         command1.Parameters.AddWithValue("@ProductName", productName);
                         command1.Parameters.AddWithValue("@ProductCategory", productCategory);
                         command1.Parameters.AddWithValue("@ProductSubCategory", productSubCategory);
                         command1.Parameters.AddWithValue("@ProductBrand", productBrand);
                         command1.Parameters.AddWithValue("@ShopKartAssured", shopKartAssured);
+                        // incrementedId =(long)await command1.ExecuteScalarAsync();
                         await command1.ExecuteNonQueryAsync();
+                        incrementedId = command1.LastInsertedId;
+
                     }
-                    incrementedId = "SELECT LAST_INSERT_ID()";
+                    // incrementedId = "SELECT LAST_INSERT_ID()";
+                    // Retrieve the last inserted ID
+
+
                     // Commit the transaction if both steps are successful
                 }
                 catch (Exception ex)
@@ -56,17 +63,17 @@ namespace DAL.CreateUpdate
             }
             response.Message = ("DataInsertedSuccessfully", nameof(InsertPrimaryDetailsAsync)).ToString();
             response.IsValid = true;
-            response.IncrementedId = int.Parse(incrementedId);
+            response.IncrementedId = incrementedId;
             return response;
 
         }
 
-        public async Task<ResponseDetails> InsertDescriptionAsync(ProductDescription product, int incrementedId)
+        public async Task<ResponseDetails> InsertDescriptionAsync(ProductDescription product, long incrementedId)
         {
             string connectionString = "server=localhost; port=3306; database=ecommerce; user=root; password=9284@Mysim;";
             ResponseDetails response = new();
             // Sample data for insertion
-            int productId = incrementedId;
+            long productId = incrementedId;
             string colour = product.Colour;
             string imagePath = product.ImagePath;
             string attribute1 = product.Attribute1;
@@ -80,14 +87,14 @@ namespace DAL.CreateUpdate
             float productDiscount = product.ProductDiscount;
             int sku = product.Sku;
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 await connection.OpenAsync();
                 try
                 {
                     // Step 1: Insert into the first table
                     string sqlInsertQuery1 = "INSERT INTO ecommerce.productdescription (productId, attr1, attr1Value,attr2,attr2Value,attr3,attr3Value,productDescription,sku,colours,imagePaths) VALUES (@ProductId, @Attribute1, @Attribute1Value, @Attribute2, @Attribute2Value, @Attribute3, @Attribute3Value, @ProductDescription, @Sku, @Colour, @ImagePath)";
-                    using (SqlCommand command1 = new SqlCommand(sqlInsertQuery1, connection))
+                    using (MySqlCommand command1 = new MySqlCommand(sqlInsertQuery1, connection))
                     {
                         command1.Parameters.AddWithValue("@ProductId", productId);
                         command1.Parameters.AddWithValue("@Attribute1", attribute1);

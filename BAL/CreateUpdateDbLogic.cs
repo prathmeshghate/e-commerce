@@ -42,14 +42,22 @@ namespace BAL.CreateUpdate
                 int productsLength = products.Count;
 
                 DbResponseDetails primaryDataResponse = await _createUpdateDbRepositary.InsertPrimaryDetailsAsync(products[0].ProductPrimaryDetails);
-
+                //check the response
+                if (!primaryDataResponse.IsValid)
+                {
+                    response.Message = primaryDataResponse.Message;
+                    response.IsValid = false;
+                    return response;
+                }
                 for (int i = 0; i < productsLength; i++)
                 {
-                    response = await _createUpdateDbRepositary.InsertDescriptionAsync(products[i].ProductDescription,primaryDataResponse.IncrementedId);
+                    response = await _createUpdateDbRepositary.InsertDescriptionAsync(products[i].ProductDescription, primaryDataResponse.IncrementedId);
+                    if (!response.IsValid)
+                    {
+                        return response;
+                    }
                 }
-
-                // write the logic of creating new productId and productDescriptionId here
-
+x
                 return response;
             }
             catch (Exception ex)

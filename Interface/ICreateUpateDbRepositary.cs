@@ -8,6 +8,6 @@ namespace Interface.CreateUpdateRepo
     public interface ICreateUpdateDbRepositary
     {
         Task<DbResponseDetails> InsertPrimaryDetailsAsync(ProductPrimaryDetails product);
-        Task<ResponseDetails> InsertDescriptionAsync(ProductDescription product, int incrementedId);
+        Task<ResponseDetails> InsertDescriptionAsync(ProductDescription product, long incrementedId);
     }
 }

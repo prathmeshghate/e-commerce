@@ -4,6 +4,6 @@ namespace utility.DbResponse
     {
         public string Message { get; set; }
         public bool IsValid { get; set; }
-        public int IncrementedId {get; set; }
+        public long IncrementedId {get; set; }
     }
 }
