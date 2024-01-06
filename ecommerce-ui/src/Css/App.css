@@ -6,12 +6,34 @@
   /* width: 100vw; */
 }
 
-.header-container{
-    position: sticky;
-    top:0;
+.header-container {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .body-container {
-    /* min-height: calc(100vh-110px); */
-  /* margin-top: 110px; */
+  display: flex;
+  flex-direction: column;
+  /* border:1px solid wheat;  */
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-banner {
+  margin: 20px 50px 30px;
+  /* border:1px solid wheat; */
+  width: 1200px;
+  /* height: 550px; */
+}
+
+.advertsing-section {
+  /* border: 1px solid pink; */
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  /* height: 700px; */
+  width: 1200px;
+  margin-top: 70px;
+  margin-bottom: 140px;
 }

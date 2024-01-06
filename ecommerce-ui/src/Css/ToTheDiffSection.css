@@ -1,0 +1,28 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ } 
+
+.mid-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.accessories-section {
+  padding-right: 3px;
+  cursor: pointer;
+}
+
+.clothing-section {
+  cursor: pointer;
+}
+
+.electronics-section {
+  cursor: pointer;
+}
+
+.mobile-section {
+  cursor: pointer;
+  padding-left: 3px;
+}

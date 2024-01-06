@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "./components/header";
 import "./Css/App.css";
+import ToTheDiffSections from "./components/ToTheDiffSections";
+import AdvertiseYourBrand from "./components/AdvertiseYourBrand";
 
 function App() {
   return (
@@ -9,7 +11,12 @@ function App() {
         <Header />
       </div>
       <div className="body-container">
-        
+        <div className="section-banner">
+          <ToTheDiffSections />
+        </div>
+        <div className="advertsing-section">
+          <AdvertiseYourBrand />
+        </div>
       </div>
     </div>
   );
