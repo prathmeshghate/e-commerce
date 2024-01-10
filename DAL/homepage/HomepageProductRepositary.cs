@@ -15,9 +15,9 @@ namespace DAL.homepage
             _container = container;
         }
 
-        public Product GetAllHomepageProduct()
+        public void GetAllHomepageProduct()
         {
-            return new Product();
+            
         }
     }
 }

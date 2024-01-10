@@ -1,24 +1,32 @@
 import React from "react";
 import Header from "./components/header";
 import "./Css/App.css";
-import ToTheDiffSections from "./components/ToTheDiffSections";
-import AdvertiseYourBrand from "./components/AdvertiseYourBrand";
+import Home from "./Pages/home";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from "react-router-dom/cjs/react-router-dom";
+import ProductPage from "./Pages/ProductPage";
 
 function App() {
   return (
-    <div className="App">
-      <div className="header-container">
-        <Header />
-      </div>
-      <div className="body-container">
-        <div className="section-banner">
-          <ToTheDiffSections />
+    <Router>
+      <div className="App">
+        <div className="header-container">
+          <Header />
         </div>
-        <div className="advertsing-section">
-          <AdvertiseYourBrand />
-        </div>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/product"
+          >
+            <ProductPage/>
+          </Route>
+        </Switch>
       </div>
-    </div>
+    </Router>
   );
 }
 

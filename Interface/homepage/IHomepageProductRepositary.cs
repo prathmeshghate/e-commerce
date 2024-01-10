@@ -6,6 +6,6 @@ namespace Interface.homepage
 {
     public interface IHomepageProductRepositary
     {
-        Product GetAllHomepageProduct();
+        void GetAllHomepageProduct();
     }
 }

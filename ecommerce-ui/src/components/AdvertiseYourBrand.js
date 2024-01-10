@@ -6,14 +6,14 @@ export default function AdvertiseYourBrand() {
     <div className="main-section">
       <div className="image-section">
         <img
-          src={require("../static image/advertiseYourBrand/BrandAdvertisementImage1.png")}
+          src="images/advertiseYourBrand/BrandAdvertisementImage1.png"
           className="advertiseing-image-1"
           alt="AB"
           height={300}
           width={290}
         />
         <img
-          src={require("../static image/advertiseYourBrand/BrandAdvertisementImage2.png")}
+          src="images/advertiseYourBrand/BrandAdvertisementImage2.png"
           className="advertiseing-image-2"
           alt="AB"
           height={300}

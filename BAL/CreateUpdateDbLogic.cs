@@ -18,6 +18,7 @@ namespace BAL.CreateUpdate
         private readonly IMapper _mapper;
         private readonly ICreateUpdateDbRepositary _createUpdateDbRepositary;
 
+
         public CreateUpdateDbLogic(IServiceProvider container, IMapper mapper, ICreateUpdateDbRepositary createUpdateDbRepositary)
         {
             _container = container;
@@ -36,7 +37,7 @@ namespace BAL.CreateUpdate
                     return response;
                 }
 
-                Product Product = new();
+                // Product Product = new();
                 List<string> Colours = new List<string>(productSummary.Colours.Split(","));
                 List<Product> products = IntoIndividualProduct(productSummary);
                 int productsLength = products.Count;
@@ -74,35 +75,36 @@ namespace BAL.CreateUpdate
             //colours
             //imagePaths
 
-            List<string> Colours = new List<string>(productSummary.Colours.Split(","));
-            List<string> ImagePaths = new List<string>(productSummary.ImagePaths.Split(","));
-            List<string> skuOfString = new List<string>(productSummary.Sku.Split(","));
+            List<string> Colours = new(productSummary.Colours.Split(","));
+            List<string> ImagePaths = new(productSummary.ImagePaths.Split(","));
+            List<string> skuOfString = new(productSummary.Sku.Split(","));
             List<int> sku = skuOfString.ConvertAll(int.Parse);
             int ColoursLength = Colours.Count;
 
             ProductPrimaryDetails productPrimaryDetails = new();
             ProductDescription productDescription = new();
-            Product product = new();
 
             List<Product> products = new List<Product>();
             productPrimaryDetails = _mapper.Map<ProductPrimaryDetails>(productSummary);
             productDescription = _mapper.Map<ProductDescription>(productSummary);
 
+            for (int i = 0; i < ColoursLength; i++)
+            {
+                Product prod = new Product();
+                prod.ProductDescription = _mapper.Map<ProductDescription>(productSummary);
+                prod.ProductPrimaryDetails = _mapper.Map<ProductPrimaryDetails>(productSummary);
+                products.Add(prod);
+            }
 
             for (int i = 0; i < ColoursLength; i++)
             {
-                productDescription.Colour = Colours[i];
-                productDescription.ImagePath = ImagePaths[i];
-                productDescription.Sku = sku[i];
+                products[i].ProductDescription.Colour = Colours[i];
+                products[i].ProductDescription.ImagePath = ImagePaths[i];
+                products[i].ProductDescription.Sku = sku[i];
 
-                product.ProductPrimaryDetails = productPrimaryDetails;
-                product.ProductDescription = productDescription;
-                products.Add(product);
             }
 
             return products;
-
-
         }
     }
 }

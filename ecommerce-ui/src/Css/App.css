@@ -21,19 +21,4 @@
   align-items: center;
 }
 
-.section-banner {
-  margin: 20px 50px 30px;
-  /* border:1px solid wheat; */
-  width: 1200px;
-  /* height: 550px; */
-}
 
-.advertsing-section {
-  /* border: 1px solid pink; */
-  /* display: flex; */
-  /* justify-content: flex-start; */
-  /* height: 700px; */
-  width: 1200px;
-  margin-top: 70px;
-  margin-bottom: 140px;
-}

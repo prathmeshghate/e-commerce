@@ -19,7 +19,7 @@ namespace BAL.homepage
         }
         public List<ProductSummary> GetDataAsync()
         {
-            Product x=_homepagerepo.GetAllHomepageProduct();
+            // Product x=_homepagerepo.GetAllHomepageProduct();
 
             return new List<ProductSummary>();
 

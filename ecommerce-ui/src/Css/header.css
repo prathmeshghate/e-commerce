@@ -12,34 +12,36 @@
   display: flex;
   width: 85%;
   /* border: 1px solid rgb(243, 81, 81); */
-  justify-content: center;
+  margin-left: 150px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-contents {
   display: flex;
-  width: 70%;
+  width: 75%;
   justify-content: center;
-  justify-content: space-around;
+  justify-content: space-between;
   /* border: 2px solid rgb(243, 255, 12); */
-
 }
 
 .navigation-menu {
   display: flex;
   width: 70%;
   color: white;
+  margin-left: 50px;
   justify-content: space-between;
   /* border: 2px solid rgb(255, 1, 238); */
 }
 
 .logo-container {
   display: flex;
-  margin-left: 30px;
+  margin-left: 50px;
   /* margin-top: -20px; */
   /* size: 90px; */
   width: 90px;
   color: white;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   /* border: 2px solid rgb(174, 0, 255); */
   cursor: pointer;
 }
@@ -89,9 +91,56 @@
   color: white;
   cursor: pointer;
   /* border: 1px solid white; */
-
 }
 
 .search-logo {
+  /* margin-top: 5px; */
   font-weight: bold;
+}
+
+.login-signup-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  /* border: 2px solid green; */
+  margin-right: 100px;
+  height: 50px;
+  width: 165px;
+}
+
+.login-section {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  font-family: "Hind Siliguri", sans-serif;
+  width: 65px;
+  font-weight: bold;
+  font-size: 15px;
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.or-section {
+  color: white;
+}
+
+.signup-section {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  cursor: pointer;
+  font-family: "Hind Siliguri", sans-serif;
+  width: 70px;
+  font-weight: bold;
+  font-size: 15px;
+  background-color: white;
+  border-radius: 10px;
+  color:black;
 }

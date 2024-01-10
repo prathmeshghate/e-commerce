@@ -1,13 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 import "../Css/header.css";
 import { BsSearch } from "react-icons/bs";
 
 export default function header() {
   return (
     <div className="header-main">
-      <div className="logo-container">
-        <img src={require('../static image/ShopKartLogo.png')} alt="abc" className="logo-main" height={100} width={100}/>
-      </div>
+      <Link to="/">
+        <div className="logo-container">
+          <img
+            src="/images/ShopKartLogo.png"
+            alt="abc"
+            className="logo-main"
+            height={100}
+            width={100}
+          />
+        </div>
+      </Link>
       <div className="navigation-tags">
         <div className="header-contents">
           <div className="navigation-menu">
@@ -19,9 +28,16 @@ export default function header() {
             <BsSearch className="search-logo" size={30} />
           </div>
         </div>
+        <div className="login-signup-section">
+          <Link>
+            <div className="login-section">Log In</div>
+          </Link>
+          <div className="or-section">or</div>
+          <Link>
+            <div className="signup-section">Sign Up</div>
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
-
-
