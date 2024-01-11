@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using DTO;
 using DTO.product;
 using Entity.product;
+using Entity.productSummary;
 using Interface.homepage;
 
 namespace DAL.homepage
@@ -8,16 +10,14 @@ namespace DAL.homepage
     public class HomepageProductRepositary : IHomepageProductRepositary
     {
 
-        private readonly IServiceProvider _container;
 
         public HomepageProductRepositary(IServiceProvider container)
         {
             _container = container;
         }
 
-        public void GetAllHomepageProduct()
-        {
-            
+        public List<ProductSummary> HighestDiscountProductAsync(){
+            string cmd=@"SELECT * FROM ecommerce."
         }
     }
 }

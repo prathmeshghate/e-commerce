@@ -1,32 +1,35 @@
+using System;
+using System.Collections.Generic;
 using BAL.homepage;
 using DTO;
+using DTO.productSummary;
+using Interface.homepage;
 using Microsoft.AspNetCore.Mvc;
 
 namespace controller.homepage
 {
     public class HomepageController : ControllerBase
     {
-        private readonly IServiceCollection _container;
+        private readonly IHomePageLogic _homePageLogic;
 
-        public HomepageController(IServiceCollection container)
+        public HomepageController( IHomePageLogic homePageLogic)
         {
-            _container = container;
+            _homePageLogic = homePageLogic;
         }
 
-        [Route("api/HomepageController")]
-        public IActionResult HomepageAsync()
+        [HttpGet]
+        [Route("api/deal-of-the-day")]
+        public ActionResult<List<ProductSummaryDto>> DealOfTheDayAsync()
         {
-            //make a dto which will contain 
-            //productName
-            //makeName
-            //price
-            //discountedPrice
-            //image
-            //rating
-
-
-
-            return Ok("GotThe HitBitch");
+            try
+            {
+                ProductSummaryDto productSummary = _homePageLogic.GetDataAsync();
+                return Ok(productSummary);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Message is {ex.Message}");
+            }
         }
 
 

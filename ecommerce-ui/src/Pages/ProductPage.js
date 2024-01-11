@@ -50,7 +50,7 @@ export default function ProductPage() {
       </div>
       <div className="delivery-feature-container">
         <div className="delivery-feature">
-          <IoPricetag size={80} />
+          <IoPricetag size={70} />
           <div className="delivery-feature-title">Get 10% Off</div>
           <div className="delivery-feature-desc">
             Avail 10% Off on your first purchase. Available at checkout.

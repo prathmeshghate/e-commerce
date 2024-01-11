@@ -38,7 +38,7 @@ internal class Program
         #region DependencyInjection
 
         builder.Services.AddTransient<IHomepageProductRepositary, HomepageProductRepositary>();
-        builder.Services.AddTransient<IProductLogic, ProductLogic>();
+        builder.Services.AddTransient<IHomePageLogic, HomePageLogic>();
         builder.Services.AddTransient<ICreateUpdateDbLogic, CreateUpdateDbLogic>();
         builder.Services.AddTransient<ICreateUpdateDbRepositary, CreateUpdateDbRepositary>();
         #endregion
