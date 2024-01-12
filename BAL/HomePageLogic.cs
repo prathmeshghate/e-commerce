@@ -40,8 +40,7 @@ namespace BAL.homepage
         private List<ProductSummary> GetDealOfTheDayAsync()
         {
             //repo call
-         _homePageRepo;
-            
+            List<ProductSummary> productSummary = _homePageRepo.GetDealOfDayProductAsync();
         }
     }
 

@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "F:\\e-commerce\\e-commerce.csproj": {}
+    "C:\\personal\\e-commerce\\e-commerce.csproj": {}
   },
   "projects": {
-    "F:\\e-commerce\\e-commerce.csproj": {
+    "C:\\personal\\e-commerce\\e-commerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\e-commerce\\e-commerce.csproj",
+        "projectUniqueName": "C:\\personal\\e-commerce\\e-commerce.csproj",
         "projectName": "e-commerce",
-        "projectPath": "F:\\e-commerce\\e-commerce.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "F:\\e-commerce\\obj\\",
+        "projectPath": "C:\\personal\\e-commerce\\e-commerce.csproj",
+        "packagesPath": "C:\\Users\\prathmesh.g\\.nuget\\packages\\",
+        "outputPath": "C:\\personal\\e-commerce\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\prathmesh.g\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net6.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -35,8 +35,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -100,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }
