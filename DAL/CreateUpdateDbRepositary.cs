@@ -93,7 +93,7 @@ namespace DAL.CreateUpdate
                 try
                 {
                     // Step 1: Insert into the first table
-                    string sqlInsertQuery1 = "INSERT INTO ecommerce.productdescription (productId, attr1, attr1Value,attr2,attr2Value,attr3,attr3Value,productDescription,sku,colours,imagePaths) VALUES (@ProductId, @Attribute1, @Attribute1Value, @Attribute2, @Attribute2Value, @Attribute3, @Attribute3Value, @ProductDescription, @Sku, @Colour, @ImagePath)";
+                    string sqlInsertQuery1 = "INSERT INTO ecommerce.productdescription (productId, attr1, attr1Value,attr2,attr2Value,attr3,attr3Value,productDescription,productPrice,productDiscount,sku,colours,imagePaths) VALUES (@ProductId, @Attribute1, @Attribute1Value, @Attribute2, @Attribute2Value, @Attribute3, @Attribute3Value, @ProductDescription,@ProductPrice,@ProductDiscount, @Sku, @Colour, @ImagePath)";
                     using (MySqlCommand command1 = new MySqlCommand(sqlInsertQuery1, connection))
                     {
                         command1.Parameters.AddWithValue("@ProductId", productId);
@@ -104,6 +104,8 @@ namespace DAL.CreateUpdate
                         command1.Parameters.AddWithValue("@Attribute3", attribute3);
                         command1.Parameters.AddWithValue("@Attribute3Value", attribute3Value);
                         command1.Parameters.AddWithValue("@ProductDescription", productDesc);
+                        command1.Parameters.AddWithValue("@ProductPrice", productPrice);
+                        command1.Parameters.AddWithValue("@ProductDiscount", productDiscount);
                         command1.Parameters.AddWithValue("@Sku", sku);
                         command1.Parameters.AddWithValue("@Colour", colour);
                         command1.Parameters.AddWithValue("@ImagePath", imagePath);

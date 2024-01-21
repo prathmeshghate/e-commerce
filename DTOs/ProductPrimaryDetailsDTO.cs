@@ -1,12 +1,12 @@
 using System.Text.Json.Serialization;
 
-namespace DTO.product
+namespace DTO.productPrimaryDetails
 {
     public class ProductPrimaryDetailsDTO
     {
 
         [JsonPropertyName("productid")]
-        public int Productid{get; set;}
+        public int ProductId{get; set;}
         [JsonPropertyName("productName")]
         public string ProductName{get; set;}
         [JsonPropertyName("productCategory")]

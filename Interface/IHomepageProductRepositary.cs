@@ -1,11 +1,14 @@
 using DTO;
-using DTO.product;
 using Entity.product;
+using Entity.productDesc;
+using Entity.productPrimary;
 
 namespace Interface.homepage
 {
     public interface IHomepageProductRepositary
     {
-        List<ProductSummary> GetAllHomepageProduct();
+        Task<List<Product>> GetDealOfDayProductAsync();
+        Task<List<ProductDescription>> GetProductDescWithHighestDiscountAsync();
+        Task<ProductPrimaryDetails> GetProductPrimaryDetails(int productId);
     }
 }

@@ -2,11 +2,16 @@ using System.Text.Json.Serialization;
 
 namespace Dto.ProductDescription
 {
-    public class ProductDescriptionDto
+    public class ProductDescriptionDTO
     {
+        [JsonPropertyName("productId")]
+        public int ProductId {get; set;}
+        [JsonPropertyName("productDescriptionId")]
         public int ProductDescriptionId { get; set; }
-        [JsonPropertyName("colours")]
+        [JsonPropertyName("colour")]
         public string Colour { get; set; }
+        [JsonPropertyName("imagePath")]
+        public string ImagePath { get; set; }
         [JsonPropertyName("attribute1")]
         public string Attribute1 { get; set; }
         [JsonPropertyName("attribute1Value")]
@@ -22,9 +27,9 @@ namespace Dto.ProductDescription
         [JsonPropertyName("productDescription")]
         public string ProductDescription { get; set; }
         [JsonPropertyName("productPrice")]
-        public int ProductPrice { get; set; }
+        public float ProductPrice { get; set; }
         [JsonPropertyName("productDiscount")]
-        public int ProductDiscount { get; set; }
+        public float ProductDiscount { get; set; }
         [JsonPropertyName("sku")]
         public int Sku { get; set; }
         [JsonPropertyName("rating")]

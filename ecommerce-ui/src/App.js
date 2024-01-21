@@ -8,6 +8,7 @@ import {
   Switch,
 } from "react-router-dom/cjs/react-router-dom";
 import ProductPage from "./Pages/ProductPage";
+import ParticularSection from "./Pages/particularSection";
 
 function App() {
   return (
@@ -20,10 +21,10 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/product"
-          >
-            <ProductPage/>
+          <Route path="/product/:id">
+            <ProductPage />
           </Route>
+          <ParticularSection path="/:section"/> 
         </Switch>
       </div>
     </Router>

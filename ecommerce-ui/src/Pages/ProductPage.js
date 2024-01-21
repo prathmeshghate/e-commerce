@@ -3,8 +3,11 @@ import "../Css/ProductPage.css";
 import { TbTruckDelivery } from "react-icons/tb";
 import { GiCardboardBoxClosed } from "react-icons/gi";
 import { IoPricetag } from "react-icons/io5";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
 
 export default function ProductPage() {
+  const {id}=useParams();
+
   return (
     <div className="product-page-container">
       <div className="product-container">

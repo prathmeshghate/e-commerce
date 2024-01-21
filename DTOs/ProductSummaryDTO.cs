@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 namespace DTO.productSummary
 {
 
-    public class ProductSummaryDto
+    public class ProductSummaryDTO
     {
 
         [JsonPropertyName("productid")]

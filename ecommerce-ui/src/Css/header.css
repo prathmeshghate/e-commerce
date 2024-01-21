@@ -1,5 +1,5 @@
 .header-main {
-  border: 3px solid rgb(255, 0, 251);
+  /* border: 3px solid rgb(255, 0, 251); */
   background-color: #000000;
   z-index: 2;
   width: 100%;
@@ -17,14 +17,14 @@
   /* width: 90px; */
   color: white;
   /* justify-content: space-around; */
-  border: 2px solid rgb(174, 0, 255);
+  /* border: 2px solid rgb(174, 0, 255); */
   cursor: pointer;
 }
 
 .navigation-tags {
   display: flex;
   width: 80%;
-  border: 1px solid rgb(243, 81, 81);
+  /* border: 1px solid rgb(243, 81, 81); */
   /* margin-left: 150px; */
   justify-content: space-around;
   align-items: center;
@@ -35,7 +35,7 @@
   width: 75%;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid rgb(243, 255, 12);
+  /* border: 2px solid rgb(243, 255, 12); */
   /* margin-left: 3%; */
 }
 
@@ -45,7 +45,7 @@
   color: white;
   /* margin-right: 5%; */
   justify-content: space-between;
-  border: 2px solid rgb(255, 1, 238);
+  /* border: 2px solid rgb(255, 1, 238); */
 }
 
 .clothing-container {
@@ -83,7 +83,7 @@
   /* margin-left: 30%; */
   align-items: center;
   width: 30%;
-  border: 1px solid white;
+  /* border: 1px solid white; */
   /* padding: 3px; */
 }
 
@@ -107,7 +107,7 @@
   justify-content: space-between;
   align-items: center;
   /* margin-bottom: 5px; */
-  border: 2px solid green;
+  /* border: 2px solid green; */
   /* margin-right: 100px; */
   /* height: 50px; */
   width: 15%;

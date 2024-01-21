@@ -1,9 +1,9 @@
 using BAL.CreateUpdate;
-using DTO.productSummary;
 using Entity.product;
 using Entity.productSummary;
 using utility.response;
 using utility.ValidationDetail;
+using DTO.productSummary;
 
 
 namespace utility.Validation
@@ -11,7 +11,7 @@ namespace utility.Validation
     public static class Validation
     {
 
-        public static ValidationDetails ValidateProductInfoDto(ProductSummaryDto productRequest)
+        public static ValidationDetails ValidateProductInfoDto(ProductSummaryDTO productRequest)
         {
             ValidationDetails response = new();
 
@@ -96,5 +96,9 @@ namespace utility.Validation
             response.IsValid = true;
             return response;
         }
+    }
+
+    public class ProductSummaryDto
+    {
     }
 }

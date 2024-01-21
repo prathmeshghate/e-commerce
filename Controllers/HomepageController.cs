@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using BAL.homepage;
+using Dto.product;
 using DTO;
 using DTO.productSummary;
 using Interface.homepage;
@@ -19,11 +20,11 @@ namespace controller.homepage
 
         [HttpGet]
         [Route("api/deal-of-the-day")]
-        public ActionResult<List<ProductSummaryDto>> DealOfTheDayAsync()
+        public async Task<ActionResult<List<ProductDTO>>> DealOfTheDayAsync()
         {
             try
             {
-                ProductSummaryDto productSummary = _homePageLogic.GetDataAsync();
+                List<ProductDTO> productSummary = await _homePageLogic.GetDealOfTheDayAsync();
                 return Ok(productSummary);
             }
             catch (Exception ex)

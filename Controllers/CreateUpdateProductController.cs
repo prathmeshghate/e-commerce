@@ -1,5 +1,3 @@
-using BAL.homepage;
-using DTO.product;
 using AutoMapper;
 using DTO.productSummary;
 using Entity.product;
@@ -33,7 +31,7 @@ namespace controller.createProduct
         }
         [HttpPost]
         [Route("api/create-product")]
-        public async Task<IActionResult> InsertProduct([FromBody] ProductSummaryDto productRequest)
+        public async Task<IActionResult> InsertProduct([FromBody] ProductSummaryDTO productRequest)
         {
             try
             {

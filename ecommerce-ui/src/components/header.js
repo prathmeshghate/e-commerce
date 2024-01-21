@@ -21,9 +21,15 @@ export default function header() {
       <div className="navigation-tags">
         <div className="header-contents">
           <div className="navigation-menu">
-            <div className="clothing-container">Clothing</div>
-            <div className="electronics-container">Electronics</div>
-            <div className="accessories-container">Accessories</div>
+            <Link to={`/${"Clothing"}`}>
+              <div className="clothing-container">Clothing</div>
+            </Link>
+            <Link to={`/${"Electronics"}`}>
+              <div className="electronics-container">Electronics</div>
+            </Link>
+            <Link to={`/${"Accessories"}`}>
+              <div className="accessories-container">Accessories</div>
+            </Link>
           </div>
           <div className="search-container">
             <input className="search-box" />
