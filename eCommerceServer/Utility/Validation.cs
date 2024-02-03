@@ -4,6 +4,8 @@ using Entity.productSummary;
 using utility.response;
 using utility.ValidationDetail;
 using DTO.productSummary;
+using Entity.user;
+using ZstdSharp.Unsafe;
 
 
 namespace utility.Validation
@@ -96,9 +98,26 @@ namespace utility.Validation
             response.IsValid = true;
             return response;
         }
+
+        public static ResponseDetails ValidateUserRequest(User user)
+        {
+            ResponseDetails response = new();
+            if (String.IsNullOrEmpty(user.MobileNo))
+            {
+                response.Message = "mobile number is empty";
+                return response;
+            }
+            if (String.IsNullOrEmpty(user.Password))
+            {
+                response.Message = "Password is empty";
+                return response;
+            }
+            response.Message = "Valid input details";
+            response.IsValid = true;
+            return response;
+
+        }
+
     }
 
-    public class ProductSummaryDto
-    {
-    }
 }

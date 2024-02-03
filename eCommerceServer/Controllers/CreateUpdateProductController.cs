@@ -38,7 +38,7 @@ namespace controller.createProduct
                 ValidationDetails request = Validation.ValidateProductInfoDto(productRequest);
                 if (!request.IsValidRequest)
                 {
-                    RequestDetails errorDetails = new RequestDetails("BadRequest, The mentioned property is null: ", request.PropertyName);
+                    RequestDetails errorDetails = new("BadRequest, The mentioned property is null: ", request.PropertyName);
                     return BadRequest(errorDetails);
                 }
                 ProductSummary productSummary = _mapper.Map<ProductSummary>(productRequest);

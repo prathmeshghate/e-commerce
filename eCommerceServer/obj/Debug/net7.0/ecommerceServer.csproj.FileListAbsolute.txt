@@ -135,3 +135,12 @@ F:\e-commerce\eCommerceServer\obj\Debug\net7.0\refint\ecommerceServer.dll
 F:\e-commerce\eCommerceServer\obj\Debug\net7.0\ecommerceServer.pdb
 F:\e-commerce\eCommerceServer\obj\Debug\net7.0\ecommerceServer.genruntimeconfig.cache
 F:\e-commerce\eCommerceServer\obj\Debug\net7.0\ref\ecommerceServer.dll
+F:\e-commerce\eCommerceServer\bin\Debug\net7.0\BCrypt.Net-Next.dll
+F:\e-commerce\eCommerceServer\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\e-commerce\eCommerceServer\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+F:\e-commerce\eCommerceServer\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\e-commerce\eCommerceServer\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+F:\e-commerce\eCommerceServer\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+F:\e-commerce\eCommerceServer\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\e-commerce\eCommerceServer\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+F:\e-commerce\eCommerceServer\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
